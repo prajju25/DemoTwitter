@@ -1,4 +1,11 @@
 /* You can add global styles to this file, and also import other style files */
+.container{
+    max-width: 90% !important;
+    margin-left: 5% !important;
+    margin-right: 5% !important;
+    border-left: 2px solid #87bce9 !important;
+    border-right: 2px solid #87bce9 !important;
+}
 .name{
     color: #000000;
     font-weight: bold;
