@@ -16,6 +16,7 @@ export class ProfileComponent implements OnInit {
   postKeys: Array<string> = [];
   userData: UserData = null;
   isLoading: boolean = true;
+  postMsg: string = null;
 
   constructor(private apiService: ApiServiceService, private loginService: LoginServiceService) { }
 
@@ -26,6 +27,28 @@ export class ProfileComponent implements OnInit {
       this.postKeys = Object.keys(res);
       this.myPosts = res;
       this.isLoading = false;
+    });
+  }
+
+  postTweet(){
+    let userData: UserData = this.loginService.fetchUserData();
+    let req: PostData = {
+      fullName: userData.fullName,
+      likeCount: 0,
+      postMsg: this.postMsg,
+      postTime: new Date().getTime(),
+      retweetCount: 0,
+      userName: userData.userName,
+      comments: []
+    };
+    this.apiService.postPosts(req).subscribe((res)=>{
+      console.log(res);
+      this.myPosts.push(req);
+      this.postMsg = null;
+      this.apiService.hashtags.next(this.apiService.findHashtags(req.postMsg));
+    },
+    error=>{
+      console.log(error);
     });
   }
 

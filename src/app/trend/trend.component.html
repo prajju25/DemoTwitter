@@ -1,12 +1,14 @@
-<div class="row">
-    <div class="col">
-        <label for="search">Find the hashtags</label>
-        <input id="search" class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search" [(ngModel)]="searchString" (keydown.enter)="search()">
-        <button class="btn btn-primary mt10" type="submit" (click)="search()">Search</button>
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <label for="search">Find the hashtags</label>
+            <input id="search" class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search" [(ngModel)]="searchString" (keydown.enter)="search()">
+            <button class="btn btn-primary mt10" type="submit" (click)="search()">Search</button>
+        </div>
     </div>
-</div>
-<div class="row">
-    <div class="list-group">
-        <a class="col-12" href="javascript:void(0)" *ngFor="let tag of hashTags">{{tag.name}}</a>
+    <div class="row">
+        <div class="list-group">
+            <a class="col-12" href="javascript:void(0)" *ngFor="let tag of hashTags">{{tag.name}}</a>
+        </div>
     </div>
 </div>

@@ -12,6 +12,15 @@
     </div>
 </div>
 <div class="row">
+  <div class="card" style="width: 100%;">
+      <div class="card-body">
+          <p class="card-title">Post the tweet</p>
+          <div><textarea class="text-msg" [(ngModel)]="postMsg"></textarea></div>
+          <button class="btn btn-primary" (click)="postTweet()">Tweet</button>
+      </div>
+  </div>
+</div>
+<div class="row">
     <div class="loader" *ngIf="isLoading">
     </div>
     <div class="card" style="width: 100%;" *ngIf="!isLoading && postKeys.length < 1">
