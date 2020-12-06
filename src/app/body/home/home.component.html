@@ -1,0 +1,44 @@
+<div class="row">
+    <div class="card" style="width: 100%;">
+        <div class="card-body">
+            <p class="card-title">Post the tweet</p>
+            <div><textarea class="text-msg" [(ngModel)]="postMsg"></textarea></div>
+            <button class="btn btn-primary" (click)="postTweet()">Tweet</button>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="loader" *ngIf="isLoading">
+    </div>
+    <div class="card" style="width: 100%;" *ngIf="!isLoading && postKeys.length < 1">
+      <div class="card-body"> 
+        <p class="card-title">No Posts Available</p>
+      </div>
+    </div>
+    <div class="card" style="width: 100%;" *ngFor="let key of postKeys">
+        <div class="card-body">            
+          <p class="card-title">
+            <span class="name">{{posts[key].fullName}}</span>
+            <span class="user-id-post">@{{posts[key].userName}}</span>
+            <span class="user-id-post">| {{posts[key].postTime | date}}</span>
+          </p>
+          <p class="card-text">{{posts[key].postMsg}}</p>
+          <hr>
+          <span>{{posts[key].likeCount}} likes</span>
+          <span class="retweet">{{posts[key].retweetCount}} retweets</span>
+          <hr>
+          <div class="card" style="width: 100%;" *ngFor="let comment of posts[key].comments">
+            <div class="card-body">            
+              <p class="card-title">
+                <span class="name">{{comment.fullName}}</span>
+                <span class="user-id">@{{comment.userName}}</span>
+              </p>
+              <p class="card-text">{{comment.postMsg}}</p>
+              <hr>
+              <span>{{comment.likeCount}} likes</span>
+              <span class="retweet">{{comment.retweetCount}} retweets</span>
+            </div>
+        </div>
+        </div>
+    </div>
+</div>

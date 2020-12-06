@@ -1,0 +1,19 @@
+<nav class="navbar navbar-light bg-light">
+    <div id="navbarText">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item">
+          <a class="nav-link active" [routerLink]="['/home']" href="javascript:void(0)"><h5>Demo Twitter</h5></a>
+        </li>
+      </ul>
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item"  *ngFor="let menu of listMenus" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
+          <a class="nav-link" [routerLink]="[menu.url]" href="javascript:void(0)">
+            {{menu.name}}
+            </a>
+        </li>
+      </ul>
+      <span class="navbar-text">
+        <button class="btn btn-primary" (click)="checkLogOut()">{{isLoggedIn ? 'Log Out' : 'Log In'}}</button>
+      </span>
+    </div>
+</nav>

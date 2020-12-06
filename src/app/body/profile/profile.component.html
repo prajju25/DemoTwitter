@@ -1,0 +1,35 @@
+<div class="row">
+    <div class="card" style="width: 100%;">
+        <div class="card-body">
+            <div class="name">{{userData.fullName}}</div>
+            <div class="user-id">@{{userData.userName}}</div>
+            <div class="user-id">Joined {{userData.createdTime | date}}</div>
+            <div class="name">
+                <span> {{userData.following}} Following </span>|
+                <span> {{userData.followers}} Followers</span>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="loader" *ngIf="isLoading">
+    </div>
+    <div class="card" style="width: 100%;" *ngIf="!isLoading && postKeys.length < 1">
+      <div class="card-body"> 
+        <p class="card-title">No Posts Available</p>
+      </div>
+    </div>
+    <div class="card" style="width: 100%;" *ngFor="let key of postKeys">
+        <div class="card-body">            
+          <p class="card-title">
+            <span class="name">{{myPosts[key].fullName}}</span>
+            <span class="user-id-post">@{{myPosts[key].userName}}</span>
+            <span class="user-id-post">| {{myPosts[key].postTime | date}}</span>
+          </p>
+          <p class="card-text">{{myPosts[key].postMsg}}</p>
+          <hr>
+          <span>{{myPosts[key].likeCount}} likes</span>
+          <span class="retweet">{{myPosts[key].retweetCount}} retweets</span>
+        </div>
+    </div>
+</div>

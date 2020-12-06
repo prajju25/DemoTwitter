@@ -1,0 +1,7 @@
+/*remove
+div{
+    border: 1px solid black;
+}*/
+div[class="container"] div[class*="col-"]{
+    min-height: 700px !important;
+}
