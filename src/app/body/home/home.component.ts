@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { PostData } from 'src/app/models/post-data';
-import { UserData } from 'src/app/models/user-data';
 import { ApiServiceService } from 'src/app/services/api-service.service';
 import { LoginServiceService } from 'src/app/services/login-service.service';
 
